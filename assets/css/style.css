@@ -1,5 +1,18 @@
+/* Colors Codes Used 
+Blue: #9BB8CD 
+Beige: #FFF7D4
+Yellow: #EEC759
+Green: #B1C381
+*/
+
+
 header {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal; 
+    background-color: #9BB8CD;
+}
+
+body {
+    
 }
