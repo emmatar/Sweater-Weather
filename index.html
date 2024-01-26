@@ -24,53 +24,66 @@
       <h1 class="display-3 text-black">Sweater Weather</h1>
     </header>
 
+    <!-- Main "interactive" section of site -->
     <main class="container-fluid">
-
-
-    <div class="row">
+      <div class="row">
 
         <!-- Search Container -->
-        <div class="city-search col-lg-3 d-flex flex-column justify-content-center">
+        <div id="searchContainer" class="col-lg-3 d-flex flex-column justify-content-center beige">
             <h3>Search for a City:</h3>
             <!-- Search Field -->
             <div class="search-field input-group">
                 <!-- Search Field User Input -->
                 <input
-                id="searchTextBox"
+                id="searchInput"
                 class="form-control"
                 type="text"
                 placeholder="Ex: Kansas City"
                 aria-label="City Name Search Field"/>
                 <!-- Search Button -->
-                <div class="btn-container">
+                <div id="buttonContainer">
                     <button class="input-group btn btn-primary rounded-0 rounded-end" type="submit" value="Search">
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
             </div>
             <!-- Search History Container -->
-            <div id="searchHistoryContainer">
+            <div id="historyCont">
                 <!-- Search History List -->
-                <ol id="searchHistoryList">
-                </ol>
+                <ol id="historyListItem"></ol>
             </div>
         </div>
 
         <!-- Weather Forecast -->
-        <div class="col-lg-9 weather-forecast">
+        <div class="weather-forecast col-lg-9 beige">
             <!-- Todays Forecast -->
-            <div class="row ">
-                <h4>Searched City Current Weather</h4>
-
+            <div id="todaysForecast">
+                <div class="col-lg-11">
+                    <div id="todaysInfo">
+                        <h3 id="cityName" class="todays-date">Todays Forecast</h3>
+                        <img id="weather-icon"/>
+                        <p id="temperature"></p>
+                        <p id="wind"></p>
+                        <p id="humidity"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Text for "5-Day Forecast:" -->
+            <div id="fiveDayTitle">
+              <h4  id="weekForecastTitle" class="col-lg-11">5-Day Forecast:</h4>
             </div>
 
-
-            <!-- 5 Day Forecast -->
-            <div class="row">
-                <h4>Searched City 5-day Forecase</h4>
+            <!-- Week Forecast -->
+            <div id="weekForecast">
+              <div class="row">
+                <div class="col-md-2 m-2 yellow">asdf</div>
+                <div class="col-md-2 m-2 yellow">asdf</div>
+                <div class="col-md-2 m-2 green">asdf</div>
+                <div class="col-md-2 m-2 green">asdf</div>
+                <div class="col-md-2 m-2 green">asdf</div>
+              </div>
             </div>
         </div>
-
 
       </div>
     </main>

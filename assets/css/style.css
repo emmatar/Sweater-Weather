@@ -1,18 +1,31 @@
-/* Colors Codes Used 
-Blue: #9BB8CD 
-Beige: #FFF7D4
-Yellow: #EEC759
-Green: #B1C381
-*/
-
+/* Color Palettes */
+:root {
+    --blue: #9BB8CD;
+    --beige: #FFF7D4;
+    --yellow: #EEC759;
+    --green: #B1C381;
+}
 
 header {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal; 
-    background-color: #9BB8CD;
+    background-color: var(--blue);
 }
 
-body {
-    
+.blue {
+    background-color: var(--blue);
 }
+
+.green {
+    background-color: var(--green);
+}
+
+.yellow {
+    background-color: var(--yellow);
+}
+
+.beige {
+    background-color: var(--beige);
+}
+
