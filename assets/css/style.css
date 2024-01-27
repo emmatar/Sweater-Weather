@@ -1,31 +1,50 @@
 /* Color Palettes */
 :root {
-    --blue: #9BB8CD;
+    --lightblue: #9BB8CD;
     --beige: #FFF7D4;
-    --yellow: #EEC759;
-    --green: #B1C381;
+    --darkblue: #436b87;
 }
 
 header {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal; 
-    background-color: var(--blue);
+    background-color: var(--beige);
+    color: var(--lightblue);
 }
 
-.blue {
-    background-color: var(--blue);
+body {
+    background-color: var(--lightblue);
+    color: white;
 }
 
-.green {
-    background-color: var(--green);
+i {
+    color: var(--beige);
+}
+button {
+    z-index: 1;
 }
 
-.yellow {
-    background-color: var(--yellow);
+.hide {
+    display: none
 }
 
-.beige {
+
+.lightblue {
+    background-color: var(--lightblue);
+}
+
+.five-day {
+    background-color: var(--darkblue);
+    border-radius: 5px;
+}
+
+#searchCont {
+    border: 2px solid var(--darkblue);
+    border-radius: 5px;
+}
+
+#searchInput {
     background-color: var(--beige);
 }
 

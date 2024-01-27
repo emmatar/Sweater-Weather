@@ -20,19 +20,19 @@
     <title>Sweater-Weather</title>
   </head>
   <body>
-    <header class="container-fluid text-center p-2">
-      <h1 class="display-3 text-black">Sweater Weather</h1>
+    <header class="container-fluid text-center p-4">
+      <h1 class="display-3">Sweater Weather</h1>
     </header>
 
     <!-- Main "interactive" section of site -->
     <main class="container-fluid">
       <div class="row">
-
         <!-- Search Container -->
-        <div id="searchContainer" class="col-lg-3 d-flex flex-column justify-content-center beige">
-            <h3>Search for a City:</h3>
+        <div class="col-lg-3 d-flex flex-column justify-content-center">
+          <div id="searchCont" class="mt-3 p-3">
+            <h2 class="m-3">Search for a City:</h2>
             <!-- Search Field -->
-            <div class="search-field input-group">
+              <form id="userForm" class="card-body search-field input-group my-3">
                 <!-- Search Field User Input -->
                 <input
                 id="searchInput"
@@ -46,24 +46,25 @@
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
-            </div>
-            <!-- Search History Container -->
-            <div id="historyCont">
-                <!-- Search History List -->
-                <ol id="historyListItem"></ol>
-            </div>
+              </form>
+          </div>
+          <!-- Search History Container -->
+          <div id="historyContainer">
+            <!-- Search History List -->
+            <ol id="historyListItem"></ol>
+          </div>
         </div>
 
         <!-- Weather Forecast -->
-        <div class="weather-forecast col-lg-9 beige">
+        <div id="weatherCont" class="col-lg-9">
             <!-- Todays Forecast -->
             <div id="todaysForecast">
                 <div class="col-lg-11">
                     <div id="todaysInfo">
-                        <h3 id="cityName" class="todays-date">Todays Forecast</h3>
-                        <img id="weather-icon"/>
+                        <h3 id="cityName" class="todays-date mt-4">Todays Forecast</h3>
+                        <img id="weatherIcon"/>
                         <p id="temperature"></p>
-                        <p id="wind"></p>
+                        <p id="windSpeed"></p>
                         <p id="humidity"></p>
                     </div>
                 </div>
@@ -76,11 +77,11 @@
             <!-- Week Forecast -->
             <div id="weekForecast">
               <div class="row">
-                <div class="col-md-2 m-2 yellow">asdf</div>
-                <div class="col-md-2 m-2 yellow">asdf</div>
-                <div class="col-md-2 m-2 green">asdf</div>
-                <div class="col-md-2 m-2 green">asdf</div>
-                <div class="col-md-2 m-2 green">asdf</div>
+                <div class=" col-md-2 m-2 five-day">asdf</div>
+                <div class=" col-md-2 m-2 five-day">asdf</div>
+                <div class=" col-md-2 m-2 five-day">asdf</div>
+                <div class=" col-md-2 m-2 five-day">asdf</div>
+                <div class=" col-md-2 m-2 five-day">asdf</div>
               </div>
             </div>
         </div>
