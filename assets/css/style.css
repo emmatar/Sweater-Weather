@@ -18,6 +18,7 @@ body {
     color: white;
 }
 
+
 i {
     color: var(--beige);
 }
@@ -43,7 +44,15 @@ button {
     margin: 1rem;
 }
 
+#todaysForecast {
+    background-color: var(--darkblue);
+}
+#todaysInfo {
+    margin: 1rem;
+}
+
 #searchCont {
+    margin-left: 1rem;
     border: 2px solid var(--darkblue);
     border-radius: 5px;
 }

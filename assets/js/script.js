@@ -6,6 +6,7 @@ const historyCont = document.querySelector("#historyContainer");
 let historyListItem = document.querySelector("#historyListItem");
 const weatherCont = document.querySelector("#weatherCont")
 const todaysForecast = document.querySelector("#todaysForecast");
+const weekForeCastTitle = document.querySelector("#weekForecastTitle")
 const todaysInfo = document.querySelector("#todaysInfo");
 const cityNameDisplay = document.querySelector("#cityName");
 const cityName = document.querySelector("#cityName");
@@ -57,7 +58,8 @@ function getFutureWeather (lat, lon) {
 }   
 
 function displayFutureWeather (data) {
-
+console.log(data);
+    weekForeCastTitle.textContent = `5-Day Forecast for ${data.city.name}`
 
     for (let index = 7; index < data.list.length; index += 8) {
         var forecast = document.querySelector("#forecast")
