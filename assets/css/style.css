@@ -35,8 +35,12 @@ button {
 }
 
 .five-day {
-    background-color: var(--darkblue);
     border-radius: 5px;
+}
+
+.dark-blue {
+    background-color: var(--darkblue);
+    margin: 1rem;
 }
 
 #searchCont {
@@ -51,3 +55,4 @@ button {
 #description-logo-container {
     display: inline;
 }
+
