@@ -48,3 +48,6 @@ button {
     background-color: var(--beige);
 }
 
+#description-logo-container {
+    display: inline;
+}

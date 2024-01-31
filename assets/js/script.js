@@ -9,6 +9,7 @@ const todaysForecast = document.querySelector("#todaysForecast");
 const todaysInfo = document.querySelector("#todaysInfo");
 const cityNameDisplay = document.querySelector("#cityName");
 const cityName = document.querySelector("#cityName");
+const weatherDescription = document.querySelector("#weather-description")
 const weatherIcon = document.querySelector("#weatherIcon");
 const temperature = document.querySelector("#temperature");
 const windSpeed = document.querySelector("#windSpeed");
@@ -23,46 +24,66 @@ const fiveDay = document.querySelector(".five-day")
 
 const apiKey = "522836f5c966e7d724b78aa476376de7"
 
-function getCityInfo (city) {
-    let geoCityName = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+function fetchCityCoord (city) {
+    const cityLocation = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-    fetch(geoCityName).then(function (response) {
+    fetch(cityLocation).then(function (response) {
         if (response.ok) {
+
             response.json().then(function (data) {
                 const lat = data.coord.lat;
                 const lon = data.coord.lon;
-                const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
-                displayWeather(data)
+                getTodayWeather(data)
+                getFutureWeather(lat, lon);
             })
         }
+    }) .catch(function (err) {
+        
     })
 }
 
-function displayWeather (data) {
-    console.log(data);
+function getFutureWeather (lat, lon) {
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+
+    fetch(weatherUrl).then(function (response) {
+        if (response.ok) {
+
+            response.json().then(function (data) {
+                // pass forloop into display function
+                for (let index = 7; index < data.list.length; index += 8) {
+                    const element = data.list[index];
+                    console.log(index, element);
+                }
+            })
+        }
+    })
+}   
+
+
+function getTodayWeather (data) {
     var temp = (Math.floor(((data.main.temp) - 273.15) * 1.8 + 32));
     var today = dayjs();
-
-    time.textContent = today.format('MMM D, YY')
-    
+    var icon = data.weather[0].icon;
+    time.textContent = today.format('MMM D, YYYY')
     cityName.textContent = data.name;
-    // weatherIcon.value = data.weather;
+    weatherDescription.textContent = `${data.weather[0].description}`;
+    console.log(weatherDescription);
+    weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${icon}.png`)
     temperature.textContent = `Temperature: ${temp}°F`;
     windSpeed.textContent = `Wind Speed: ${data.wind.speed}mph`;
     humidity.textContent = `Humidity: ${data.main.humidity}%`
 
 
-    
-
 } 
 
-function formSumbitCity (event) {
+// Validating user input and displaying error if 
+function userSumbitCity (event) {
     event.preventDefault();
 
     var cityInput = searchInput.value
 
     if (cityInput) {
-        getCityInfo(cityInput);
+        fetchCityCoord(cityInput);
 
         searchInput.value = '';
     } else {
@@ -77,5 +98,7 @@ function formSumbitCity (event) {
         };
 }
 
-userForm.addEventListener('submit', formSumbitCity);
+
+// Event listener for City search
+userForm.addEventListener('submit', userSumbitCity);
 
