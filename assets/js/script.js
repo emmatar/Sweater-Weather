@@ -75,20 +75,18 @@ console.log(data);
         var weekWindSpeed = document.createElement("p")
         var weekHumidity = document.createElement("p")
 
-
         const weekInfo = data.list[index];
         var unixTime = weekInfo.dt;
         var futureDates = unixTime * 1000;
         var icon = weekInfo.weather[0].icon;
-
+        var formattedDate = dayjs(weekInfo.dt_txt).format("MMM D, YYYY")
     
-        weekDate.textContent = weekInfo.dt_txt;
+        weekDate.textContent = formattedDate;
         weekWeatherDescription.textContent = weekInfo.weather[0].description;
         weekWeatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${icon}.png`)
         weekTemperature.textContent = `Temperature: ${weekInfo.main.temp}°F`
         weekWindSpeed.textContent = `Wind Speed: ${weekInfo.wind.speed}mph`;
         weekHumidity.textContent = `Humidity: ${weekInfo.main.humidity}%`;
-
         forecastBlock.appendChild(weekDate)
         forecastBlock.appendChild(weekWeatherIcon)
         forecastBlock.appendChild(weekWeatherDescription)
@@ -97,8 +95,6 @@ console.log(data);
         forecastBlock.appendChild(weekHumidity)
 
         forecast.appendChild(forecastBlock)
-
-
         // forecast.append()
         console.log(index, weekInfo);
     }
