@@ -81,12 +81,11 @@ function getTodayWeather (data) {
     var today = dayjs();
     var icon = data.weather[0].icon;
     cityName.textContent = data.name;
-    console.log(temp);
     if(temp >= 55 && temp <= 65) {
         sweater.classList.remove("hideMe")
         sweaterCont.classList.remove("hideMe")
     } else {
-        sweater.classList = "hideMe"
+        // sweater.classList = "hideMe"
         sweaterCont.classList = "hideMe"
     }
     date.textContent = today.format('MMM D, YYYY')
