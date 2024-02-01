@@ -3,7 +3,7 @@ const userForm = document.querySelector("#userForm");
 const searchInput = document.querySelector("#searchInput");
 const searchButton = document.querySelector("button");
 const historyCont = document.querySelector("#historyContainer");
-let historyListItem = document.querySelector("#historyListItem");
+const historyListItem = document.querySelector("#historyListItem");
 const weatherCont = document.querySelector("#weatherCont")
 const todaysForecast = document.querySelector("#todaysForecast");
 const weekForeCastTitle = document.querySelector("#weekForecastTitle")
@@ -16,21 +16,46 @@ const temperature = document.querySelector("#temperature");
 const windSpeed = document.querySelector("#windSpeed");
 const humidity = document.querySelector("#humidity");
 const date = document.querySelector("#date")
-
-
-
+const rowTwo = document.querySelector("#rowTwo")
 const weekForecast = document.querySelector("#weekForecast");
 const fiveDay = document.querySelector(".five-day")
-
-
+const sweater = document.querySelector("#sweater-icon")
+const sweaterCont = document.querySelector("#sweater-cont")
 const apiKey = "522836f5c966e7d724b78aa476376de7"
+todaysInfo.classList = "hideMe"
+// Validating user input
+function userSumbitCity (event) {
+    event.preventDefault();
+    var cityInput = searchInput.value
+
+    if (cityInput) {
+        const cityArray = []
+        const stringifyCity = JSON.stringify(cityInput)
+        cityArray.push(stringifyCity)
+        localStorage.setItem("CityName", cityArray)
+        fetchCityCoord(cityInput);
+        displayUserInput()
+        searchInput.value = '';
+        todaysInfo.classList.remove("hideMe")
+
+    } else {
+        var alertMessage = document.createElement("p");
+        alertMessage.classList = "m-3 mb-0 fs-5 text-danger"
+        alertMessage.textContent = "*Please Enter a City*"
+        searchCont.append(alertMessage);
+
+        setTimeout(function () {
+            alertMessage.classList = "d-none"
+        }, 2000);
+        };
+}
+
 
 function fetchCityCoord (city) {
-    const cityLocation = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    const cityLocationUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-    fetch(cityLocation).then(function (response) {
+    fetch(cityLocationUrl).then(function (response) {
         if (response.ok) {
-
             response.json().then(function (data) {
                 const lat = data.coord.lat;
                 const lon = data.coord.lon;
@@ -38,17 +63,45 @@ function fetchCityCoord (city) {
                 getFutureWeather(lat, lon);
             })
         }
-    }) .catch(function (err) {
-        
     })
 }
+
+function displayUserInput() {
+    var cityList = localStorage.getItem("CityName").replace(/['"]+/g, '')
+    var cityListEl = document.createElement('a')
+    cityListEl.setAttribute('href', "#");
+    cityListEl.setAttribute('class', 'city-link')
+    cityListEl.innerHTML = cityList;
+    // historyListItem.textContent = "Search History:"
+    historyListItem.append(cityListEl)
+}
+
+function getTodayWeather (data) {
+    var temp = (Math.floor(((data.main.temp) - 273.15) * 1.8 + 32));
+    var today = dayjs();
+    var icon = data.weather[0].icon;
+    cityName.textContent = data.name;
+    console.log(temp);
+    if(temp >= 55 && temp <= 65) {
+        sweater.classList.remove("hideMe")
+        sweaterCont.classList.remove("hideMe")
+    } else {
+        sweater.classList = "hideMe"
+        sweaterCont.classList = "hideMe"
+    }
+    date.textContent = today.format('MMM D, YYYY')
+    weatherDescription.textContent = `${data.weather[0].description}`;
+    weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${icon}.png`)
+    temperature.textContent = `Temperature: ${temp}°F`;
+    windSpeed.textContent = `Wind Speed: ${data.wind.speed}mph`;
+    humidity.textContent = `Humidity: ${data.main.humidity}%`
+} 
 
 function getFutureWeather (lat, lon) {
     const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
 
     fetch(weatherUrl).then(function (response) {
         if (response.ok) {
-
             response.json().then(function (data) {
                 // pass forloop into display function
                 displayFutureWeather(data) 
@@ -58,28 +111,27 @@ function getFutureWeather (lat, lon) {
 }   
 
 function displayFutureWeather (data) {
-console.log(data);
     weekForeCastTitle.textContent = `5-Day Forecast for ${data.city.name}`
+    while (forecast.hasChildNodes()) {
+        forecast.removeChild(forecast.firstChild);
+    }
 
     for (let index = 7; index < data.list.length; index += 8) {
-        var forecast = document.querySelector("#forecast")
-        var forecastBlock = document.createElement("div")
-        forecastBlock.setAttribute('class', 'col-md-2 dark-blue')
-        // var forecastDate = document.querySelector("#forecastDate")
-        // var descriptionIcon = document.querySelector("#description-icon")
-        // var tempWindHumd = document.querySelector("#temp-wind-humd");
-        var weekDate = document.createElement("h4")
-        var weekWeatherDescription = document.createElement("h4")
-        var weekWeatherIcon = document.createElement("img")
-        var weekTemperature = document.createElement("p")
-        var weekWindSpeed = document.createElement("p")
-        var weekHumidity = document.createElement("p")
-
+        // elements Created to display in each 5-day forecast block
+        const forecast = document.querySelector("#forecast")
+        const weekDate = document.createElement("h4")
+        const weekWeatherDescription = document.createElement("h4")
+        const weekWeatherIcon = document.createElement("img")
+        const weekTemperature = document.createElement("p")
+        const weekWindSpeed = document.createElement("p")
+        const weekHumidity = document.createElement("p")
         const weekInfo = data.list[index];
-        var unixTime = weekInfo.dt;
-        var futureDates = unixTime * 1000;
-        var icon = weekInfo.weather[0].icon;
-        var formattedDate = dayjs(weekInfo.dt_txt).format("MMM D, YYYY")
+        const unixTime = weekInfo.dt;
+        const futureDates = unixTime * 1000;
+        const icon = weekInfo.weather[0].icon;
+        const formattedDate = dayjs(weekInfo.dt_txt).format("MMM D, YYYY")
+        const forecastBlock = document.createElement("div")
+        forecastBlock.setAttribute('class', 'col-md-2 forecast-block dark-blue')
     
         weekDate.textContent = formattedDate;
         weekWeatherDescription.textContent = weekInfo.weather[0].description;
@@ -95,50 +147,16 @@ console.log(data);
         forecastBlock.appendChild(weekHumidity)
 
         forecast.appendChild(forecastBlock)
-        // forecast.append()
-        console.log(index, weekInfo);
     }
 }
 
-
-function getTodayWeather (data) {
-    var temp = (Math.floor(((data.main.temp) - 273.15) * 1.8 + 32));
-    var today = dayjs();
-    var icon = data.weather[0].icon;
-    cityName.textContent = data.name;
-    date.textContent = today.format('MMM D, YYYY')
-    weatherDescription.textContent = `${data.weather[0].description}`;
-    weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${icon}.png`)
-    temperature.textContent = `Temperature: ${temp}°F`;
-    windSpeed.textContent = `Wind Speed: ${data.wind.speed}mph`;
-    humidity.textContent = `Humidity: ${data.main.humidity}%`
-
-
-} 
-
-// Validating user input and displaying error if 
-function userSumbitCity (event) {
-    event.preventDefault();
-
-    var cityInput = searchInput.value
-
-    if (cityInput) {
-        fetchCityCoord(cityInput);
-
-        searchInput.value = '';
-    } else {
-        var alertMessage = document.createElement("p");
-        alertMessage.classList = "m-3 mb-0 fs-5 text-danger"
-        alertMessage.textContent = "*Please Enter a City*"
-        searchCont.append(alertMessage);
-
-        setTimeout(function () {
-            alertMessage.classList = "d-none"
-        }, 2000);
-        };
+function linkToSearch(e) {
+    var citylink = e.target.innerHTML;
+    fetchCityCoord(citylink)
 }
 
 
-// Event listener for City search
+// Event listeners for user input to begin new search
+historyListItem.addEventListener('click', linkToSearch);
 userForm.addEventListener('submit', userSumbitCity);
 

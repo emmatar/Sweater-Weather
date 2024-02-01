@@ -26,7 +26,7 @@
   </head>
   <body>
     <header class="container-fluid text-center p-4">
-      <h1 class="display-3">Weather Dashboard</h1>
+      <h1 class="display-3">Sweater Weather</h1>
     </header>
 
     <!-- Main "interactive" section of site -->
@@ -54,23 +54,28 @@
           <!-- Search History Container -->
           <div id="historyContainer">
             <!-- Search History List -->
-            <ol id="historyListItem"></ol>
+          <div id="historyListItem" class="row"></div>
           </div>
         </div>
       </div>
-      <div id="row-2" class="col-9">
+      <div id="rowTwo" class="col-9">
         <!-- Weather Forecast -->
         <div id="weatherCont">
             <!-- Todays Forecast -->
-            <div id="todaysForecast" class="col-3">
+            <div id="todaysForecast">
                     <div id="todaysInfo">
-                      <div class="row-5">
-                        <h2 id="cityName" class="todays-date mt-4"></h2>
-                        <h4 id="date"></h4>
+                      <div class="row row-5">
+                        <div class="col-8">
+                          <h2 id="cityName" class="col-8 todays-date mt-4"></h2>
+                          <h4 id="date"></h4>
+                        </div>
+                        <div id="sweater-cont" class="col-4" >
+                          <img id="sweater-icon" src="/assets/images/sweater-1.png" alt="sweater-icon by bqlqn" />
+                        </div>
                       </div>
                       <div id="description-logo-container" class="">
                         <h4 id="weather-description"></h4>
-                        <img id="weatherIcon" alt=""/>
+                        <img id="weatherIcon" alt="weather-icon"/>
                       </div>
                         <p id="temperature"></p>
                         <p id="windSpeed"></p>

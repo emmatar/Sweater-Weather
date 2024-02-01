@@ -18,7 +18,6 @@ body {
     color: white;
 }
 
-
 i {
     color: var(--beige);
 }
@@ -26,13 +25,20 @@ button {
     z-index: 1;
 }
 
-.hide {
-    display: none
+a {
+    text-decoration: none;
 }
 
+.row-5 {
+    display: flex;
+    flex-wrap: nowrap;
+    width: fit-content;
+    flex-direction: row;
+}
 
 .lightblue {
     background-color: var(--lightblue);
+    width: fit-content;
 }
 
 .five-day {
@@ -41,14 +47,56 @@ button {
 
 .dark-blue {
     background-color: var(--darkblue);
-    margin: 1rem;
 }
 
-#todaysForecast {
-    background-color: var(--darkblue);
+.row-5 {
+    margin: 0;
 }
-#todaysInfo {
+
+.col-8 {
+    padding: 0;
+}
+
+.forecast-block {
     margin: 1rem;
+    padding: 1rem;
+    width: fit-content;
+}
+#cityName {
+    margin: 0;
+}
+
+#sweater-cont {
+    padding: .7rem;
+    border-radius: 50px;
+    position: relative;
+    top: 1.3rem;
+    background-color: var(--beige);
+    width: fit-content;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sweater-icon {
+    width: 60px;
+    height: 60px;
+}
+
+#historyListItem{
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    font-size: 25px;
+}
+
+#todaysInfo {
+    margin: 1rem 0;
+    width: max-content;
+    background-color: var(--darkblue);
+    padding: 0 1rem;
+    padding-bottom: .5rem;
+    padding-right: 2rem;
 }
 
 #searchCont {
@@ -62,6 +110,13 @@ button {
 }
 
 #description-logo-container {
-    display: inline;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.hideMe  {
+    display: none !important;
 }
 
