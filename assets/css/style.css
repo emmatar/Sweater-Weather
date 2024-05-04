@@ -1,122 +1,121 @@
 /* Color Palettes */
 :root {
-    --lightblue: #9BB8CD;
-    --beige: #FFF7D4;
-    --darkblue: #436b87;
+  --lightblue: #9bb8cd;
+  --beige: #fff7d4;
+  --darkblue: #436b87;
 }
 
 header {
-    font-family: "Pacifico", cursive;
-    font-weight: 400;
-    font-style: normal; 
-    background-color: var(--beige);
-    color: var(--lightblue);
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--beige);
+  color: var(--lightblue);
 }
 
 body {
-    background-color: var(--lightblue);
-    color: white;
+  background-color: var(--lightblue);
+  color: white;
 }
 
 i {
-    color: var(--beige);
+  color: var(--beige);
 }
 button {
-    z-index: 1;
+  z-index: 1;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .row-5 {
-    display: flex;
-    flex-wrap: nowrap;
-    width: fit-content;
-    flex-direction: row;
+  display: flex;
+  flex-wrap: nowrap;
+  width: fit-content;
+  flex-direction: row;
 }
 
 .lightblue {
-    background-color: var(--lightblue);
-    width: fit-content;
+  background-color: var(--lightblue);
+  width: fit-content;
 }
 
 .five-day {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 .dark-blue {
-    background-color: var(--darkblue);
+  background-color: var(--darkblue);
 }
 
 .row-5 {
-    margin: 0;
+  margin: 0;
 }
 
 .col-8 {
-    padding: 0;
+  padding: 0;
 }
 
 .forecast-block {
-    margin: 1rem;
-    padding: 1rem;
-    width: fit-content;
+  margin: 1rem;
+  padding: 1rem;
+  width: fit-content;
+  border-radius: 15px;
 }
 #cityName {
-    margin: 0;
+  margin: 0;
 }
 
 #sweater-cont {
-    padding: .7rem;
-    border-radius: 50px;
-    position: relative;
-    top: 1.3rem;
-    background-color: var(--beige);
-    width: fit-content;
-    height: min-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 0.7rem;
+  border-radius: 50px;
+  position: relative;
+  top: 1.3rem;
+  background-color: var(--beige);
+  width: fit-content;
+  height: min-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #sweater-icon {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 
-#historyListItem{
-    margin-left: 1.5rem;
-    margin-top: 1rem;
-    font-size: 25px;
+#historyListItem {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  font-size: 25px;
 }
 
 #todaysInfo {
-    margin: 1rem 0;
-    width: max-content;
-    background-color: var(--darkblue);
-    padding: 0 1rem;
-    padding-bottom: .5rem;
-    padding-right: 2rem;
+  margin: 1rem 0;
+  width: max-content;
+  background-color: var(--darkblue);
+  padding: 0 1rem;
+  padding-bottom: 0.5rem;
+  padding-right: 2rem;
+  border-radius: 15px;
 }
 
 #searchCont {
-    margin-left: 1rem;
-    border: 2px solid var(--darkblue);
-    border-radius: 5px;
+  margin-left: 1rem;
+  /* border: 2px solid var(--darkblue); */
+  border-radius: 5px;
 }
 
 #searchInput {
-    background-color: var(--beige);
+  background-color: var(--beige);
 }
 
 #description-logo-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-
-
-.hideMe  {
-    display: none !important;
+.hideMe {
+  display: none !important;
 }
-
