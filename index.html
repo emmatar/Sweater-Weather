@@ -28,92 +28,84 @@
     <title>Sweater-Weather</title>
   </head>
   <body>
-    <header class="container-fluid text-center p-4">
+    <header class="container-fluid text-center">
       <h1 class="display-3">Sweater Weather</h1>
     </header>
 
     <!-- Main "interactive" section of site -->
-    <main class="row">
-      <div id="row-1" class="col-3">
-        <!-- Search Container -->
-        <div class="d-flex flex-column justify-content-center">
-          <div id="searchCont" class="mt-3 p-3">
-            <h2 class="">Search for a City:</h2>
-            <!-- Search Form -->
-            <form
-              id="userForm"
-              class="card-body search-field input-group flex-nowrap my-3"
+    <main class="row main-cont">
+      <div class="col search">
+        <div class="col search-for-city">
+          <!-- Search Container -->
+          <h2>Search for a City</h2>
+          <!-- Search Form -->
+          <form
+            id="userForm"
+            class="card-body search-field input-group flex-nowrap my-3"
+          >
+            <!-- Search Field User Input -->
+            <input
+              id="searchInput"
+              class="form-control"
+              type="text"
+              placeholder="Ex: Kansas City"
+              aria-label="City Name Search Field"
+            />
+            <!-- Search Button -->
+            <button
+              class="btn btn-primary btn-lg rounded-0 rounded-end"
+              type="submit"
+              value="Search"
             >
-              <!-- Search Field User Input -->
-              <input
-                id="searchInput"
-                class="form-control"
-                type="text"
-                placeholder="Ex: Kansas City"
-                aria-label="City Name Search Field"
-              />
-              <!-- Search Button -->
-              <button
-                class="btn btn-primary btn-lg rounded-0 rounded-end"
-                type="submit"
-                value="Search"
-              >
-                <i class="fa fa-search"></i>
-              </button>
-            </form>
-          </div>
-          <!-- Search History Container -->
-          <div id="historyContainer">
-            <!-- Search History List -->
-            <div id="historyListItem" class="row"></div>
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+          <div class="col history-container">
+            <h4>Search History</h4>
+            <div class="col history-list"></div>
           </div>
         </div>
-      </div>
-      <div id="rowTwo" class="col-9">
-        <!-- Weather Forecast -->
-        <div id="weatherCont">
-          <!-- Todays Forecast -->
-          <div id="todaysForecast">
-            <div id="todaysInfo">
-              <div class="row row-5">
-                <div class="col-8">
-                  <h2 id="cityName" class="col-8 todays-date mt-4"></h2>
-                  <h4 id="date"></h4>
-                </div>
-                <div id="sweater-cont" class="col-4">
-                  <a
-                    href="https://www.flaticon.com/free-icons/sweater"
-                    title="sweater icons"
-                    alt="Sweater icons created by bqlqn - Flaticon"
-                  >
-                    <img
-                      id="sweater-icon"
-                      src="https://cdn-icons-png.flaticon.com/512/6359/6359519.png"
-                      alt="sweater-icon by bqlqn"
-                    />
-                  </a>
-                </div>
-              </div>
-              <div id="description-logo-container" class="">
-                <h4 id="weather-description"></h4>
-                <img id="weatherIcon" alt="weather-icon" />
-              </div>
-              <p id="temperature"></p>
-              <p id="windSpeed"></p>
-              <p id="humidity"></p>
-            </div>
-          </div>
-          <!-- Text for "5-Day Forecast:" -->
-          <div id="fiveDayTitle">
-            <h2 id="weekForecastTitle" class="col-lg-11"></h2>
-          </div>
 
-          <!-- Week Forecast -->
-          <div id="weekForecast">
-            <div class="row">
-              <div id="forecast" class="row five-day"></div>
+        <!-- Search History Container -->
+      </div>
+      <div class="col result">
+        <!-- Todays Forecast -->
+        <div id="todaysInfo">
+          <div class="row info-header">
+            <div class="col info-header-cont">
+              <h2 class="cityName"></h2>
+              <h4 id="date"></h4>
+            </div>
+            <div id="sweater-cont">
+              <a
+                href="https://www.flaticon.com/free-icons/sweater"
+                title="sweater icons"
+                alt="Sweater icons created by bqlqn - Flaticon"
+              >
+                <img
+                  id="sweater-icon"
+                  src="https://cdn-icons-png.flaticon.com/512/6359/6359519.png"
+                  alt="sweater-icon by bqlqn"
+                />
+              </a>
             </div>
           </div>
+          <div id="description-logo-container" class="">
+            <h4 id="weather-description"></h4>
+            <img id="weatherIcon" alt="weather-icon" />
+          </div>
+          <p id="temperature"></p>
+          <p id="windSpeed"></p>
+          <p id="humidity"></p>
+        </div>
+        <!-- Text for "5-Day Forecast:" -->
+        <div id="fiveDayTitle">
+          <h2 id="weekForecastTitle" class="col-lg-11"></h2>
+        </div>
+
+        <!-- Week Forecast -->
+        <div id="weekForecast">
+          <div id="forecast" class="row five-day"></div>
         </div>
       </div>
     </main>
