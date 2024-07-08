@@ -6,8 +6,9 @@
 }
 
 header {
+  padding: 20px 0px !important;
+  width: 100%;
   font-family: "Pacifico", cursive;
-  font-weight: 400;
   font-style: normal;
   background-color: var(--beige);
   color: var(--lightblue);
@@ -23,10 +24,52 @@ i {
 }
 button {
   z-index: 1;
+  width: 70px;
 }
 
 a {
   text-decoration: none;
+}
+
+/* --------------- Classes -------------------- */
+
+.cityName {
+  text-align: center;
+  font-size: 40pt;
+}
+
+.history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 25px;
+}
+
+.history-container h4 {
+  width: fit-content;
+  float: right;
+  text-decoration: underline;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-3 {
+  font-size: 60pt;
+  margin: 0px;
+}
+
+.info-header {
+  margin: 10px 0px 0px 0px;
+}
+
+.info-header-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
 }
 
 .row-5 {
@@ -39,6 +82,11 @@ a {
 .lightblue {
   background-color: var(--lightblue);
   width: fit-content;
+}
+
+.btn-primary {
+  border: none;
+  background-color: var(--darkblue);
 }
 
 .five-day {
@@ -58,13 +106,61 @@ a {
 }
 
 .forecast-block {
-  margin: 1rem;
-  padding: 1rem;
+  margin: 5px;
+  padding: 20px;
   width: fit-content;
   border-radius: 15px;
 }
-#cityName {
-  margin: 0;
+
+.city-link {
+  margin-left: 10px;
+}
+
+.main-cont {
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+  padding: 50px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+}
+
+.search {
+  padding: 0px;
+}
+
+.search-for-city {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.search-for-city h2 {
+  margin: 0px;
+  font-size: 40pt;
+}
+
+.search-field {
+  margin: 0px 20px 40px 0px;
+  height: 45px;
+  width: 350px;
+}
+
+/* ------------------ ID's --------------------- */
+
+#description-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+#forecast {
+  display: flex;
+  justify-content: center;
 }
 
 #sweater-cont {
@@ -85,37 +181,109 @@ a {
   height: 60px;
 }
 
-#historyListItem {
-  margin-left: 1.5rem;
-  margin-top: 1rem;
-  font-size: 25px;
-}
-
 #todaysInfo {
-  margin: 1rem 0;
-  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
   background-color: var(--darkblue);
   padding: 0 1rem;
   padding-bottom: 0.5rem;
-  padding-right: 2rem;
   border-radius: 15px;
-}
-
-#searchCont {
-  margin-left: 1rem;
-  /* border: 2px solid var(--darkblue); */
-  border-radius: 5px;
 }
 
 #searchInput {
   background-color: var(--beige);
 }
 
-#description-logo-container {
+#fiveDayTitle {
   display: flex;
+  justify-content: center;
+}
+
+#weekForecast {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+#weekForecastTitle {
+  margin-top: 20px;
+  text-align: center;
 }
 
 .hideMe {
   display: none !important;
+}
+
+@media screen and (max-width: 860px) {
+  .main-cont {
+    padding: 20px;
+  }
+
+
+  .display-3 {
+    font-size: 40pt;
+    padding-top: 5px;
+  }
+
+  .search-for-city {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-field {
+    margin: 0px 0px 40px 0px !important;
+    height: 45px;
+  }
+
+  .search-for-city h2 {
+    font-size: 35pt;
+    margin-bottom: 10px;
+  }
+
+  .history-container {
+    display: none;
+  }
+
+  #fiveDayTitle h2 {
+    font-size: 30pt;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #todaysInfo {
+    width: 400px;
+  }
+
+  #searchCont h2 {
+    font-size: 18pt;
+  }
+
+  .result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+  }
+
+  .search-for-city {
+    margin-left: 15px;
+    align-items: center;
+  }
+
+  .history-container {
+    display: none !important;
+  }
+
+  .forecast-block {
+    width: 170px;
+  }
+
+  .search-field {
+    margin: 0px 10px 40px 0px !important;
+    height: 45px;
+    width: 250px;
+  }
 }
